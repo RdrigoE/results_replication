@@ -2,18 +2,13 @@ import streamlit as st
 import base64
 
 
-bins = st.sidebar.slider('Number of bins', 0.0, 1.0, 0.1)
-max_freq_value = st.sidebar.slider('Max Freq', 0.0, 1.0,  value=1.0)
-duration = st.sidebar.slider('duration (s)', 0.0, 10.0, value=1.0)
-
-
 tab1, tab2, tab3 = st.tabs(
-    ["Differences INSaFLU and Snakemake",
+    ["Show differences between INSaFLU and Snakemake",
      "Build DAG and Rulegraph",
      "Rulegraph with bottlenecks"])
 
 with tab1:
-    st.title("Differences INSaFLU and Snakemake")
+    st.title("Show differences between INSaFLU and Snakemake")
     st.markdown(
         """
 |               | Snakemake   | Website |
@@ -39,7 +34,7 @@ Demo\_Sample are ont and the other illumina
 
 |key                 |website == snakemake|
 |---------------------|----------------|
-|**Demo\_Sample\_076**|        ❌ | N G @29867
+|**Demo\_Sample\_076**|        ❌ | 
 |**Demo\_Sample\_085**|        ✓|
 |**Demo\_Sample\_094**|        ✓|
 |**Portugal\_PT43285\_2022**|  ✓|
@@ -47,6 +42,7 @@ Demo\_Sample are ont and the other illumina
 |**Portugal\_PT43286\_2022**|  ✓   | 
             """
     )
+    st.info("The unique difference in Demo_Sample_076 is: @29867 Website N Snakemake G")
 
     st.warning("Still needs some reviews! Scripts have changed since")
 
